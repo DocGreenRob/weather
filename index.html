@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="weatherApp">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Weather App</title>
+</head>
+<body ng-controller="weather-controller" style="width:362px; max-width:362px; min-width:362px; min-height:642px; border:2px solid black; margin: auto;">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" ng-show="showHomeButton" ng-click="showUi('interstatial')" style="font-size:2em; padding-bottom:10px;"><i class="fa fa-home" aria-hidden="true"></i></a>
+				<a class="navbar-brand" ng-show="showHomeButton" style="padding:0 10px 10px 10px; color:white;">{{userName}}</a>
+				<a class="navbar-brand" ng-show="showHomeButton" ng-click="showUi('settings')" style="float:right;font-size:2em; padding-bottom:10px;"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="container body-content">
+		<div ui-view></div>
+		<footer></footer>
+	</div>
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="scripts/jquery/jquery.min.js?v=3"></script>
+
+	<!-- Bootstrap & Respond -->
+	<script type="text/javascript" src="scripts/bootstrap/bootstrap.min.js?v=3"></script>
+
+	<!-- Angular -->
+	<script src="scripts/angular/angular.min.js?v=3"></script>
+	<script src="scripts/angular/angular-route.min.js?v=3"></script>
+	<script src="scripts/angular/angular-ui-router.min.js?v=3"></script>
+
+	<!-- CSS (Bootstrap, etc.) -->
+	<link href="css/bootstrap.min.css?v=3" rel="stylesheet" />
+	<link href="css/font-awesome.min.css?v=3" rel="stylesheet" />
+
+	<!-- Angular App -->
+	<script src="app/weatherApp.js?v=3"></script>
+
+	<!-- Login -->
+	<script src="app/weather-app/modules/weather/weatherModule.js?v=3"></script>
+	<script src="app/weather-app/modules/weather/weatherService.js?v=3"></script>
+	<script src="app/weather-app/modules/weather/weather-controller.js?v=3"></script>
+
+</body>
+</html>

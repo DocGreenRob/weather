@@ -1,0 +1,32 @@
+﻿<div class="container" style="margin: 10px 5px 10px 5px;">
+	<br /><br /><br /><br />
+	<h1>Weather App</h1><sub>Angular 1 code review.</sub>
+	<hr />
+	{{countdown}}
+	<div class="weatherByLocation" ng-show="getByLocation">
+		<p ng-show="!gotTemperature || hideLoader" id="p_loader">
+			<img src="img/loader.gif" style="width:15em; height:15em;" />
+		</p>
+		<p ng-show="gotTemperature">
+			<b>Temperature: </b>{{temperature}}
+			<br />
+			<b>Location: </b>{{location}}
+			<br />
+			<b>Description: </b>{{description}}
+			<br />
+			<b>Main: </b>{{main}}
+			<br />
+		</p>
+		<br /><br />
+		<button type="submit" class="btn btn-default" ng-click="showForm()" ng-show="gotTemperature || showChangeLocation">Change Location</button>
+		<i>{{message}}</i>
+	</div>
+	<div class="weatherByPostalOrCountry" ng-show="!getByLocation">
+		<p>Enter Postal / Zip or Country.</p>
+		<input type="text" placeholder="Enter Postal Code or Zip" class="postalOrZip form-control" maxlength="5" min="5" ng-model="postalOrZip" ng-keyup="disableCountryInput()" ng-disabled="disableCountry" />
+		<br /><br />
+		<input type="text" placeholder="Enter Country" class="country  form-control" ng-model="country" ng-keyup="disablePostalZipInput()" ng-disabled="disablePostalZip" />
+		<br /><br />
+		<button type="submit" class="btn btn-default" ng-click="getWeather()">Submit</button>
+	</div>
+</div>
