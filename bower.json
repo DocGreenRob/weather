@@ -1,0 +1,17 @@
+{
+  "name": "weatherapp",
+  "description": "A simple Angular 1.5 project for job interview.",
+  "version": "0.0.0",
+  "homepage": "http://weather.cognitivegenerationenterprises.com",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x",
+    "angular-animate": "1.5.x",
+    "angular-mocks": "1.5.x",
+    "angular-resource": "1.5.x",
+    "angular-route": "1.5.x",
+    "bootstrap": "3.3.x",
+    "jquery": "2.2.x"
+  }
+}

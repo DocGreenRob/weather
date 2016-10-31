@@ -25,7 +25,7 @@
 		vm.getByLocation_onError = function (error) {
 
 			vm.getByLocation = false;
-			vm.showError(error);
+			vm.showError('lat/long (location)', error);
 
 		}
 
@@ -41,7 +41,7 @@
 
 		vm.getByZip_onError = function (error) {
 			vm.getByLocation = false;
-			vm.showError(error);
+			vm.showError('zip', error);
 		}
 
 		vm.getByCountry = function (country) {
@@ -59,8 +59,17 @@
 		vm.getByCountry_onError = function (error) {
 
 			vm.getByLocation = false;
-			vm.showError(error);
+			vm.showError('country', error);
 
+		}
+
+		vm.showError = function(type, error){
+			//debugger;
+			//console.log(error);
+			var errorMessage = 'Error getting weather by '+ type +'\nError: ' + error.data.message;
+			
+			console.log(errorMessage);
+			vm.message = errorMessage;
 		}
 
 		// get the weather by either zip/postal or country

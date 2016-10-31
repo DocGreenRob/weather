@@ -18,7 +18,8 @@
 			<br />
 		</p>
 		<br /><br />
-		<button type="submit" class="btn btn-default" ng-click="showForm()" ng-show="gotTemperature || showChangeLocation">Change Location</button>
+		<button type="submit" class="btn btn-default" ng-click="showForm(); message = '';" ng-show="gotTemperature || showChangeLocation">Change Location</button>
+		<br /><br />
 		<i>{{message}}</i>
 	</div>
 	<div class="weatherByPostalOrCountry" ng-show="!getByLocation">
@@ -28,5 +29,7 @@
 		<input type="text" placeholder="Enter Country" class="country  form-control" ng-model="country" ng-keyup="disablePostalZipInput()" ng-disabled="disablePostalZip" />
 		<br /><br />
 		<button type="submit" class="btn btn-default" ng-click="getWeather()">Submit</button>
+		<br /><br />
+		<i>{{message}}</i>
 	</div>
 </div>
