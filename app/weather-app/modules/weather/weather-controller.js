@@ -7,7 +7,7 @@
 	function weatherController($scope, weatherService) {
 
 		var vm = $scope;
-
+		vm.appName = 'Weather App (Angular 1.5)';
 		vm.getByLocation = true; // default
 
 		vm.getByLocation = function (lat, long) {
@@ -64,30 +64,27 @@
 		}
 
 		vm.showError = function(type, error){
-			//debugger;
-			//console.log(error);
+
 			var errorMessage = 'Error getting weather by '+ type +'\nError: ' + error.data.message;
-			
 			console.log(errorMessage);
 			vm.message = errorMessage;
+
 		}
 
 		// get the weather by either zip/postal or country
 		vm.getWeather = function () {
 
 			if (!vm.isNull(vm.postalOrZip)) {
-				// get by zip
 				vm.getByZip(vm.postalOrZip);
 			}
 
 			if (!vm.isNull(vm.country)) {
-				// get by country
 				vm.getByCountry(vm.country);
 			}
 
 		}
 
-		// show weather input form
+		// set defaults and show weather input form
 		vm.showForm = function () {
 			vm.disablePostalZip = false;
 			vm.disableCountry = false;
@@ -96,7 +93,7 @@
 			vm.country = '';
 		}
 
-		// to check if string value is null
+		// check if string value is null or undefined
 		vm.isNull = function (val) {
 			if (val === undefined || val === undefined || val === null || val === '') {
 				return true;
@@ -170,6 +167,7 @@
 					$scope.$apply();
 
 				}
+
 				if (vm.gotTemperature == true) {
 
 				}
@@ -213,7 +211,6 @@
 		vm.getCurrentPosition_onError = function (error) {
 
 			vm.gotTemperature = false;
-			vm.getByLocation = false; // display form
 
 			// show errors
 			console.log('Error getting by lat/long (location):');
@@ -251,9 +248,10 @@
 
 		// init()
 		vm.init = function () {
-			debugger;
+
 			vm.gotTemperature = false;
 			vm.promptForLocation();
+			
 		};
 
 		vm.init();
